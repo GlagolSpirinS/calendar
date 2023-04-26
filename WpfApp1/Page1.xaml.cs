@@ -50,7 +50,7 @@ namespace WpfApp1
 
         private void DataBut()
         {
-            for (int i = 1; i < DateTime.DaysInMonth(DateTimeNow.Year, DateTimeNow.Month); i++)
+            for (int i = 1; i <= DateTime.DaysInMonth(DateTimeNow.Year, DateTimeNow.Month); i++)
             {
                 DataeEbat ebat = new DataeEbat();
                 ebat.DataName.Content = i.ToString();
@@ -61,16 +61,31 @@ namespace WpfApp1
                 {
                     if (item.selectedKmopka == 1)
                     {
-                        ebat.DataName.Background = new ImageBrush(new BitmapImage(new Uri("https://cdn-icons-png.flaticon.com/512/3480/3480823.png")));
+                        ebat.DataName.Background = new ImageBrush(new BitmapImage(new Uri("C:\\Users\\root\\Desktop\\calendar\\WpfApp1\\viob_del\\pipka1.png")))
+                        {
+                            Stretch = Stretch.Fill,
+                            ViewportUnits = BrushMappingMode.Absolute,
+                            Viewport = new Rect(25, 0, 50, 50)
+                        };
+
                     }
                     else if (item.selectedKmopka == 2)
                     {
-                        ebat.DataName.Background = new ImageBrush(new BitmapImage(new Uri("https://cdn-icons-png.flaticon.com/512/2771/2771406.png")));
-
+                        ebat.DataName.Background = new ImageBrush(new BitmapImage(new Uri("C:\\Users\\root\\Desktop\\calendar\\WpfApp1\\viob_del\\pipka2.png")))
+                        {
+                            Stretch = Stretch.Fill,
+                            ViewportUnits = BrushMappingMode.Absolute,
+                            Viewport = new Rect(25, 0, 50, 50)
+                        };
                     }
                     else if (item.selectedKmopka == 3)
                     {
-                        ebat.DataName.Background = new ImageBrush(new BitmapImage(new Uri("https://cdn-icons-png.flaticon.com/512/3778/3778588.png")));
+                        ebat.DataName.Background = new ImageBrush(new BitmapImage(new Uri("C:\\Users\\root\\Desktop\\calendar\\WpfApp1\\viob_del\\pipka3.png")))
+                        {
+                            Stretch = Stretch.Fill,
+                            ViewportUnits = BrushMappingMode.Absolute,
+                            Viewport = new Rect(25, 0, 50, 50)
+                        };
                     }
                 }
 
@@ -85,8 +100,13 @@ namespace WpfApp1
             int day = Convert.ToInt32(btn.Content);
             DateTime datesukavotsuda = new DateTime(DateTimeNow.Year, DateTimeNow.Month, day);
             // Далее открываем страницу для выбора продуктов и т.д.
-            Page2 page2 = new Page2(datesukavotsuda);
-            NavigationService.Navigate(page2);
+
+            Window1 window1 = new Window1(datesukavotsuda);
+
+            window1.Show();
+
+/*            Page2 page2 = new Page2(datesukavotsuda);
+            NavigationService.Navigate(page2);*/
         }
     }
 }
